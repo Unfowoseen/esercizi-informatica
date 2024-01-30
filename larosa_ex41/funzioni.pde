@@ -18,6 +18,6 @@ float computeVelocity(float diameter, float nRounds) {
   return metersSecondToKmHour(velocity);
 }
 
-float metersSecondToKmHour(float metersSecond) {
-  return metersSecond / 16.667;
+float metersMinuteToKmHour(float metersMinute) {
+  return metersMinute / 16.667;
 }
