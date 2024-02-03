@@ -13,7 +13,7 @@ String intToBinary(int decimal) {
   int quotient = decimal;
 
   while (quotient > 0) {
-    binary += quotient % 2;
+    binary = (quotient % 2) + binary;
     quotient /= 2;
   }
 
