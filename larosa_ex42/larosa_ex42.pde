@@ -24,10 +24,7 @@ void setup() {
 
       break;
     case 2:
-      do {
-        binary = JOptionPane.showInputDialog("Inserisci un numero binario da convertire in decimale");
-      } while (binary == null || !Pattern.matches("^[01]+$", binary));
-
+      binary = readBinary("Inserisci un numero binario da convertire in decimale");
       decimal = binaryToInt(binary);
 
       break;

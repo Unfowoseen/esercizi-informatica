@@ -8,6 +8,16 @@ int readInt(String message) {
   return int(input);
 }
 
+String readBinary(String message) {
+  String input;
+
+  do {
+    input = JOptionPane.showInputDialog(message);
+  } while (input == null || !Pattern.matches("^[01]+$", input));
+
+  return input;
+}
+
 String intToBinary(int decimal) {
   String binary = "";
   int quotient = decimal;
