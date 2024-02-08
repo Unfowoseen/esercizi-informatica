@@ -15,7 +15,7 @@ float readFloat(String message) {
 float computeVelocity(float diameter, float nRounds) {
   float velocity = PI * diameter * nRounds * 6;
 
-  return metersSecondToKmHour(velocity);
+  return metersMinuteToKmHour(velocity);
 }
 
 float metersMinuteToKmHour(float metersMinute) {
