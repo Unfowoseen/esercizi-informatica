@@ -5,7 +5,24 @@ boolean isLeapYear(int year) {
 boolean isValidDate(int d, int m, int y) {
   int[] yearDays = getYearDays(y);
 
-  return m > 0 && m < yearDays.length && d > 0 && d <= yearDays[m];
+  return y > 1582 && m > 0 && m < yearDays.length && d > 0 && d <= yearDays[m];
+}
+
+int[] getFormattedDate(String input) {
+  String[] tokens = input.split("/", 3);
+  int[] date = null;
+
+  if (tokens.length == 3) {
+    int d = int(tokens[0]),
+      m = int(tokens[1]),
+      y = int(tokens[2]);
+
+    if (isValidDate(d, m, y)) {
+      date = new int[] {d, m, y};
+    }
+  }
+
+  return date;
 }
 
 int[] getYearDays(int year) {
