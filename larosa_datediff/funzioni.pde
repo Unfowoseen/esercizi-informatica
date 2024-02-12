@@ -8,21 +8,28 @@ boolean isValidDate(int d, int m, int y) {
   return y > 1582 && m > 0 && m < yearDays.length && d > 0 && d <= yearDays[m];
 }
 
+boolean isNaN(String input) {
+  return Float.isNaN(float(input));
+}
+
 int[] getFormattedDate(String input) {
-  String[] tokens = input.split("/", 3);
-  int[] date = null;
-
-  if (tokens.length == 3) {
-    int d = int(tokens[0]),
-      m = int(tokens[1]),
-      y = int(tokens[2]);
-
-    if (isValidDate(d, m, y)) {
-      date = new int[] {d, m, y};
-    }
+  if (input == null || input.length() != 10 || input.charAt(2) != '/' || input.charAt(5) != '/') {
+    return null;
   }
 
-  return date;
+  String[] tokens = input.split("/", 3);
+
+  if (isNaN(tokens[0]) || isNaN(tokens[1]) || isNaN(tokens[2])) {
+    return null;
+  }
+
+  int d = int(tokens[0]), m = int(tokens[1]), y = int(tokens[2]);
+
+  if (!isValidDate(d, m, y)) {
+    return null;
+  }
+
+  return new int[] {d, m, y};
 }
 
 int[] getYearDays(int year) {
