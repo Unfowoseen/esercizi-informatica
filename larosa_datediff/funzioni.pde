@@ -9,7 +9,14 @@ boolean isValidDate(int d, int m, int y) {
 }
 
 boolean isNaN(String input) {
-  return Float.isNaN(float(input));
+  for (int i = 0; i < input.length(); i++) {
+    char character = input.charAt(i);
+    if (character < 48 || character > 57) {
+      return true;
+    }
+  }
+
+  return false;
 }
 
 int[] getFormattedDate(String input) {
@@ -19,8 +26,10 @@ int[] getFormattedDate(String input) {
 
   String[] tokens = input.split("/", 3);
 
-  if (isNaN(tokens[0]) || isNaN(tokens[1]) || isNaN(tokens[2])) {
-    return null;
+  for (int i = 0; i < tokens.length; i++) {
+    if (isNaN(tokens[i])) {
+      return null;
+    }
   }
 
   int d = int(tokens[0]), m = int(tokens[1]), y = int(tokens[2]);
@@ -79,5 +88,5 @@ int getDaysBetweenDates(int d1, int m1, int y1, int d2, int m2, int y2) {
     days += isLeapYear(i) ? 366 : 365;
   }
 
-  return abs(days + daysSince2);
+  return days + daysSince2;
 }
