@@ -19,7 +19,11 @@ void setup() {
           date1[0], date1[1], date1[2],
           date2[0], date2[1], date2[2]);
 
-        println("La differenza tra le due date è di " + daysDiff + " giorni.");
+        if (daysDiff < 0) {
+          println("La prima data deve essere collocata prima della seconda data.");
+        } else {
+          println("La differenza tra le due date è di " + daysDiff + " giorni.");
+        }
       }
 
       String choice = JOptionPane.showInputDialog("Vuoi ripetere l'inserimento? (y/n)");
