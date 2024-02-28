@@ -79,20 +79,30 @@ int[][] multiplyTables(int[][] t1, int[][] t2) {
     return null;
   }
 
-  int nRows = t1.length;
-  int nCols = 0;
+  int nCols1 = 0, nCols2 = 0;
 
-  for (int i = 0; i < nRows; i++) {
+  for (int i = 0; i < t1.length; i++) {
     if (i == 0) {
-      nCols = t2[i].length;
-    }
-
-    if (nRows != t2[i].length || nCols != t2[i].length) {
+      nCols1 = t1[i].length;
+      nCols2 = t2[i].length;
+    } else if (nCols1 != t1[i].length || nCols2 != t2[i].length) {
       return null;
     }
   }
 
-  int[][] t3 = new int[nRows][nCols];
+  if (nCols1 != t2.length) {
+    return null;
+  }
+
+  int[][] t3 = new int[t1.length][nCols2];
+
+  for (int row = 0; row < t3.length; row++) {
+    for (int col = 0; col < t3[row].length; col++) {
+      for (int i = 0; i < t2.length; i++) {
+        t3[row][col] += t1[row][i] * t2[i][col];
+      }
+    }
+  }
 
   return t3;
 }
