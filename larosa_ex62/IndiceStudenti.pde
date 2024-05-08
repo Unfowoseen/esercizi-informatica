@@ -1,5 +1,5 @@
 class IndiceStudenti {
-  final int N_STUDENTI = 10;
+  static final int N_STUDENTI = 10;
 
   Studente[] studenti;
 
