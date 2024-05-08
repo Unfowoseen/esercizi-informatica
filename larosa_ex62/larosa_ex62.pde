@@ -17,7 +17,7 @@ void setup() {
     } else {
       switch (scelta) {
       case "1":
-        {
+        { // codice delimitato da graffe per restringere la visibilità delle variabili nel ramo dello switch
           String nome = JOptionPane.showInputDialog("Inserisci il nome dello studente:");
           String cognome = JOptionPane.showInputDialog("Inserisci il cognome dello studente:");
           String classe = JOptionPane.showInputDialog("Inserisci la classe dello studente:");
