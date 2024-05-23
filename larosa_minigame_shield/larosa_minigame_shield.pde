@@ -7,7 +7,9 @@ void setup() {
 }
 
 void draw() {
-  background(0);
+  manager.tick();
+}
 
-  manager.display();
+void mousePressed() {
+  manager.onMousePressed();
 }
